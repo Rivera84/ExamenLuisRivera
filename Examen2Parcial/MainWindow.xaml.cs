@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Examen2Parcial
 {
@@ -20,10 +22,13 @@ namespace Examen2Parcial
     /// </summary>
     public partial class MainWindow : Window
     {
+       
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        SqlConnection cn = new SqlConnection("Data Source=LAPTOP-H5OOPDVV\\SQLEXPRESS;Initial Catalog=ERP;Integrated Security=True");
 
         private void nuevoUsuario(object sender, RoutedEventArgs e)
         {
@@ -31,5 +36,23 @@ namespace Examen2Parcial
                 this.Hide();
                 nuevo.Show();
         }
+
+        private void Iniciar(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                cn.Open();
+                string query = "Select nombreUsuario, contraseña FROM Usuario.usuario where nombreUsuario = @Usuario AND contraseña= @contra ";
+                SqlCommand comando = new SqlCommand(query, cn);
+                comando.Parameters.AddWithValue("@usuario", txtUser.Text);
+                comando.Parameters.AddWithValue("@usuario", txtContra.Password);
+                comando.ExecuteNonQuery();
+                cn.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            }
     }
 }
