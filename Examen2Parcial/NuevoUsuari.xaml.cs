@@ -10,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Examen2Parcial
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para NuevoUsuari.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NuevoUsuari : Window
     {
-        public MainWindow()
+        public NuevoUsuari()
         {
             InitializeComponent();
-        }
-
-        private void nuevoUsuario(object sender, RoutedEventArgs e)
-        {
-            NuevoUsuari nuevo = new NuevoUsuari();
-                this.Hide();
-                nuevo.Show();
         }
     }
 }
