@@ -50,5 +50,31 @@ namespace Examen2Parcial
                 MessageBox.Show(ex.ToString());
             }
         }
-    }
-}
+
+        private void Actualizar(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                cn.Open();
+                string query = "UPDATE Usuario.usuario SET (@nombre,@apellido,@usuario,@contraseña,@corre,GETDATE(),GETDATE(),@tipo,@estado)";
+                SqlCommand comando = new SqlCommand(query, cn);
+                comando.Parameters.AddWithValue(" @nombre", txtNombre.Text);
+                comando.Parameters.AddWithValue(" @apellido", txtApellido.Text);
+                comando.Parameters.AddWithValue(" @usuario", txtUser.Text);
+                comando.Parameters.AddWithValue(" @contraseña", txtContrasena.Text);
+                comando.Parameters.AddWithValue(" @correo", txtCorreo.Text);
+                comando.Parameters.AddWithValue(" @tipo", txtTipoUser.Text);
+                comando.Parameters.AddWithValue(" @estado", txtEstado.Text);
+                comando.ExecuteNonQuery();
+                MessageBox.Show(" Se a agregado un nuevo usuario");
+                cn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+     
+

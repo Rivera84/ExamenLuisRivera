@@ -23,7 +23,8 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="231,263,0,0" TextWrapping="Wrap" Name="txtTipoUser" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="231,297,0,0" TextWrapping="Wrap" Name="txtEstado" VerticalAlignment="Top" Width="120"/>
         <Button Content="Insertar" HorizontalAlignment="Left" Margin="109,347,0,0" VerticalAlignment="Top" Width="75" Click="Guardar"/>
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="231,347,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="249,347,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Editar" HorizontalAlignment="Left" Margin="179,383,0,0" VerticalAlignment="Top" Width="75" Click="Actualizar"/>
 
     </Grid>
 </Window>

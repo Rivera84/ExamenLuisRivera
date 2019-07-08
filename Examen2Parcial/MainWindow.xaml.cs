@@ -44,15 +44,23 @@ namespace Examen2Parcial
                 cn.Open();
                 string query = "Select nombreUsuario, contraseña FROM Usuario.usuario where nombreUsuario = @Usuario AND contraseña= @contra ";
                 SqlCommand comando = new SqlCommand(query, cn);
-                comando.Parameters.AddWithValue("@usuario", txtUser.Text);
-                comando.Parameters.AddWithValue("@usuario", txtContra.Password);
+                comando.Parameters.AddWithValue("@Usuario", txtUser.Text);
+                comando.Parameters.AddWithValue("@contra", txtContra.Password);
                 comando.ExecuteNonQuery();
                 cn.Close();
+                MessageBox.Show(" Se a iniciado sesion");
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
             }
+
+        private void editar(object sender, RoutedEventArgs e)
+        {
+            NuevoUsuari nuevo = new NuevoUsuari();
+            this.Hide();
+            nuevo.Show();
+        }
     }
 }
